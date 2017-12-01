@@ -32,7 +32,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 ################################################################################
 # Set the parameters by cross-validation
-param_grid = [{'kernel':('linear', )}]
+param_grid = [{'kernel': ['linear'], 'C': [1, 10, 100, 1000]}]
 
 clf = GridSearchCV(svm.SVC(C=1), param_grid, n_jobs=4, refit=True)
 
