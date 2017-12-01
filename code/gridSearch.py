@@ -8,10 +8,8 @@ Created on Thu Nov 30 10:50:01 2017
 import pandas as pd
 #para dividir los datos en train y test
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.neural_network import MLPClassifier
 
-from sklearn import svm, datasets
+from sklearn import svm
 from sklearn.model_selection import GridSearchCV
 #from sklearn.metrics import classification_report,confusion_matrix
 
@@ -34,9 +32,11 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 
 ################################################################################
 # Set the parameters by cross-validation
-tuned_parameters = [{'kernel':('linear', )}]
+param_grid = [{'kernel':('linear', )}]
 
-clf = GridSearchCV(svm.SVC(C=1), tuned_parameters, n_jobs=4, refit=True)
+clf = GridSearchCV(svm.SVC(C=1), param_grid, n_jobs=4, refit=True)
 
-print(clf.fit(X_train, y_train))
+clf.fit(X_train, y_train)
+
+print("------fin-----")
 
