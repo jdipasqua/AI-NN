@@ -38,7 +38,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y)
 #X_test = scaler.transform(X_test)
 
 #modelo de mi clasificador
-mlp = MLPClassifier(hidden_layer_sizes=(24,24,24,24,24),max_iter=1000)
+#mlp = MLPClassifier(hidden_layer_sizes=(24,24,24,24,24),max_iter=1000)
+mlp = MLPClassifier(hidden_layer_sizes=(100,100,100,100,100),max_iter=1000)
 
 #entrenamiento
 mlp.fit(X_train,y_train)
